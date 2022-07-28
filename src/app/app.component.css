@@ -16,4 +16,55 @@
 .grid-students{
     grid-area: main;
 }
+.violeta {
+    background-color: blueviolet;
+    color: white;
+    margin: 0 auto;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px; 
+    font-size: 20px;
+    text-align: center;
+}
+
+.negro {
+    background-color: black;
+    color: white;
+}
+
+.contenido2 {
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px; 
+    font-size: 20px;
+    text-align: center;
+}
+
+.titulos {
+    background-color: white;
+    color: blueviolet;
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px; 
+    font-size: 30px;
+    text-align: center;
+}
+.lista {
+    background-color: blueviolet;
+    color: black;
+    margin: 0 auto;
+    width: 500px;
+    padding: 50px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+    border-radius: 20px; 
+    font-size: 30px;
+    text-align: center;
+}
 

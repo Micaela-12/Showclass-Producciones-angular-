@@ -1,5 +1,19 @@
 <div class="grid-container">
-<app-toolbar class="grid-header"></app-toolbar>
-<app-navbar class="grid-menu"></app-navbar>
-<app-students class="grid-students"></app-students>
-</div>
+    <app-toolbar class="grid-header"></app-toolbar>
+    <app-navbar class="grid-menu"></app-navbar>
+    <app-students class="grid-students"></app-students>
+    </div>
+    <h1 class="titulos">Nuestros Shows</h1>
+
+
+    <ol class="lista">
+        <li *ngFor="let item of shows">
+            {{item.nombre}}, {{item.duracion}}
+        </li>
+    </ol>
+
+
+<h2 class="titulos">Nuestros productos estrella:</h2>
+<p [ngClass]="show != '' ? 'violeta' : 'negro'">{{contenido1}}</p>
+<p class="contenido2">{{contenido2 | uppercase}}</p>
+ 

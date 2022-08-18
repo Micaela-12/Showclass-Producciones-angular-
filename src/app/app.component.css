@@ -53,7 +53,7 @@
     padding: 20px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
     border-radius: 20px; 
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
 }
 .lista {
@@ -67,4 +67,3 @@
     font-size: 30px;
     text-align: center;
 }
-

@@ -6,23 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  shows = [
+  alumnos = [
     {
-      nombre: 'ShowMixer',
-      duracion: '40 minutos'
+      nombre: 'Pedro',
+      apellido: 'Garcia'
     }, {
-      nombre: 'Batucada',
-      duracion: '40 minutos'
+      nombre: 'Clara',
+      apellido: 'Fernandez'
     }, {
-      nombre: 'Robot de led',
-      duracion: '40 minutos'
+      nombre: 'Agustin',
+      apellido: 'Roberto'
     }, {
-      nombre: 'Red carpert',
-      duracion: '40 minutos'
+      nombre: 'Malena',
+      apellido: 'Lesiuk'
     }
   ];
   
-  show = "robot led";
-  contenido1: string = "Show Mixer, el show mas completo del mercado: bailarines + robot de led + bailarines de comparsa";
-  contenido2: string = "Red carpet, el show para recibir a tus invitados de manera elegante y original: dos oscar gigantes + dos reporteros + dos fanaticos + alfombra roja";
+  alumno = "Mariano Fernandez";
+  contenido1: string = "Curso de Programacion de Angular";
+  contenido2: string = "Curso de programacion JavaScript";
 }

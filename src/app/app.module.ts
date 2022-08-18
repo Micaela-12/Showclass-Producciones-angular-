@@ -14,9 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     ToolbarComponent,
     StudentsComponent,
-    FormularioReactivoComponent
+    FormularioReactivoComponent,
   ],
   imports: [
+    
     BrowserModule,
     ReactiveFormsModule
   ],

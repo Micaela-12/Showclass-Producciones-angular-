@@ -7,6 +7,11 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { StudentsComponent } from './components/students/students.component';
 import { FormularioReactivoComponent } from './components/formulario-reactivo/formulario-reactivo.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TablaComponent } from './components/tabla/tabla.component';
+import { AppMaterialModule } from './app.material.module';
+import { EditarDialogComponent } from './components/editar-dialog/editar-dialog.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +20,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToolbarComponent,
     StudentsComponent,
     FormularioReactivoComponent,
+    RxjsComponent,
+    TablaComponent,
+    EditarDialogComponent,
   ],
   imports: [
     
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReactiveFormsModule,
+    AppMaterialModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

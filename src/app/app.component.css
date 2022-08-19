@@ -1,3 +1,9 @@
+.index{ 
+    background: rgb(34,195,182);
+background: radial-gradient(circle, rgba(34,195,182,0.165703781512605) 0%, rgba(233,45,253,0.14889705882352944) 100%);
+}
+
+
 .grid-container{
     display: grid;
     grid-template-areas:
@@ -66,4 +72,17 @@
     border-radius: 20px; 
     font-size: 30px;
     text-align: center;
+}
+
+.profesor {
+    background-color: blueviolet;
+    color: black;
+    border-radius: 20px; 
+    font-size: 20px;
+}
+
+.boton {
+    background: rgb(34,195,182);
+    background: radial-gradient(circle, rgba(34,195,182,0.5494572829131652) 0%, rgba(226,45,253,0.6558998599439776) 100%);
+    color: black;
 }

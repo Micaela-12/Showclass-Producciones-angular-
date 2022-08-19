@@ -1,5 +1,10 @@
 <div class="grid-container">
-  <app-toolbar class="grid-header"></app-toolbar>
   <app-navbar class="grid-menu"></app-navbar>
+  <app-toolbar class="grid-header"></app-toolbar>
   <app-tabla></app-tabla>
+</div>
+<div>
+  <p class="titulos">Profesores y cursos:</p>
+  <table class="profesor">{{ profesores | json }}</table>
+  <button class="boton" (click)="agregarNuevoProfesor()">Agregar profesor</button>
 </div>

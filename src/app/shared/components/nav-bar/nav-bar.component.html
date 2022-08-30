@@ -1,0 +1,11 @@
+<nav>
+    <div class="botonNavBar" >
+        <div *ngFor="let page of navItems">
+            <a>
+                <table class="navbar" (click)="redirect(page)" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    {{page | titlecase}}</table>
+            </a>
+    </div>
+</div>
+</nav>

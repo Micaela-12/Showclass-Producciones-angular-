@@ -1,0 +1,5 @@
+.tablaBoton{
+    background: rgb(34,195,182);
+background: radial-gradient(circle, rgba(34,195,182,0.5494572829131652) 0%, rgba(226,45,253,0.6558998599439776) 100%);
+color: black;
+}

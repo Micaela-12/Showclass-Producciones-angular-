@@ -1,0 +1,36 @@
+
+.tabla {
+    background: rgb(34, 193, 195);
+    background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 45, 248, 0.2413340336134454) 100%);
+    color: black;
+    justify-content: center;
+    text-align: center;
+    font-family: cursive;
+}
+
+.botonTabla1 {
+    background: rgb(147,34,195);
+    background: radial-gradient(circle, rgba(147,34,195,0.5494572829131652) 0%, rgba(226,45,253,0.6558998599439776) 100%);
+    color: black;
+}
+
+.tablaBoton{
+    background: rgb(34,195,182);
+background: radial-gradient(circle, rgba(34,195,182,0.5494572829131652) 0%, rgba(226,45,253,0.6558998599439776) 100%);
+color: black;
+}
+
+.tituloTablas{
+text-decoration: underline;
+color: white;
+font-size: 20px;
+padding: 50px;
+}
+
+.buscar {
+    padding: 50px;
+background-color: blueviolet;
+color: white;
+text-decoration: underline;
+font-family: cursive;
+}

@@ -1,37 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { StudentsComponent } from './components/students/students.component';
-import { FormularioReactivoComponent } from './components/formulario-reactivo/formulario-reactivo.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TablaComponent } from './components/tabla/tabla.component';
-import { AppMaterialModule } from './app.material.module';
-import { EditarDialogComponent } from './components/editar-dialog/editar-dialog.component';
+
+import { RoutesModule } from './routes/routes.module';
+
+// Shared
+import { TitleFontSizeDirective } from './shared/directives';
+import { NavBarComponent, FooterComponent, PageNotFoundComponent, ToolbarComponent } from './shared/components';
+
+// Features
+import { AlumnosModule } from './alumnos/alumnos.module';
+import { CursosModule } from './cursos/cursos.module';
+import { ClasesModule } from './clases/clases.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    ToolbarComponent,
-    StudentsComponent,
-    FormularioReactivoComponent,
-    TablaComponent,
-    EditarDialogComponent,
+    TitleFontSizeDirective,
+    FooterComponent,
+    NavBarComponent,
+    PageNotFoundComponent,
+    ToolbarComponent
   ],
   imports: [
-    
     BrowserModule,
-    ReactiveFormsModule,
-    ReactiveFormsModule,
-    AppMaterialModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    RoutesModule,
+    AlumnosModule,
+    CursosModule,
+    ClasesModule,
+    SharedModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

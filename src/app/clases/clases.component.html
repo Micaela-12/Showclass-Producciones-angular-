@@ -1,0 +1,47 @@
+<h5 *ngIf="loading" >Cargando...</h5>
+<div *ngIf="!loading">
+    <div>
+        <div >
+            <button class="tablaBoton" mat-icon-button (click)="nuevoAlumno()">
+                <mat-icon>add_circle</mat-icon>
+            </button>
+        </div>
+        <mat-form-field>
+            <mat-label class="buscar" >Filtrar</mat-label>
+            <input type='text' matInput (keyup)="filtrar($event)">
+        </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" class='tabla'>
+
+        <ng-container matColumnDef="id">
+            <th class='tituloTablas' mat-header-cell *matHeaderCellDef>ID</th>
+            <td  mat-cell *matCellDef="let element">{{element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <th class='tituloTablas' mat-header-cell *matHeaderCellDef>Clase</th>
+            <td  mat-cell *matCellDef="let element">{{element.nombre}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="curso">
+            <th class='tituloTablas' mat-header-cell *matHeaderCellDef>Curso</th>
+            <td  mat-cell *matCellDef="let element">{{element.curso}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th class="tituloTablas" mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td  mat-cell *matCellDef="let element">
+                <button class="tablaBoton" mat-icon-button (click)="editar(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button class="tablaBoton" mat-icon-button (click)="eliminar(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+    </table>
+</div>

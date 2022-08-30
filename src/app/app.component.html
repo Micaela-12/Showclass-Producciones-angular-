@@ -1,10 +1,12 @@
-<div class="grid-container">
-  <app-navbar class="grid-menu"></app-navbar>
-  <app-toolbar class="grid-header"></app-toolbar>
-  <app-tabla></app-tabla>
-</div>
-<div>
-  <p class="titulos">Profesores y cursos:</p>
-  <table class="profesor">{{ profesores | json }}</table>
-  <button class="boton" (click)="agregarNuevoProfesor()">Agregar profesor</button>
+<div class='row vh-100 w-100 m-0'>
+    <app-nav-bar class='vh-100 col-4 col-md-2 bg-primary text-white collapse position-absolute'
+        id="navbarToggleExternalContent">
+    </app-nav-bar>
+    <div class='vh-100 col p-0'>
+        <app-toolbar class='titulo' [title]="title"></app-toolbar>
+        <main class='vh-86 py-3 d-flex align-items-center justify-content-center'>
+            <router-outlet></router-outlet>
+        </main>
+        <app-footer class='vh-7 px-2 d-flex align-items-center bg-light border'></app-footer>
+    </div>
 </div>

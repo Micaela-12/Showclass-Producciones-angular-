@@ -3,10 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ModificarAlumnoComponent } from './components/modificar-alumno/modificar-alumno.component';
 import { NuevoAlumnoComponent } from './components/nuevo-alumno/nuevo-alumno.component';
-import { AlumnosService } from './services/alumnos/alumnos.service';
-import { Alumno } from 'src/app/shared/interfaces/alumno';
 import { map, Observable, Subscription } from 'rxjs';
 import { BorrarDialogComponent } from '../shared/components/borrar-dialog/borrar-dialog.component';
+import { Alumno } from '../models/alumno';
+import { AlumnoService } from './services/alumno.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-alumnos',
@@ -27,18 +29,19 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   constructor(
 
     private dialog: MatDialog,
-    private alumnoServicio: AlumnosService
+    private alumnoServicio: AlumnoService,
+    private router: Router
 
   ) {
 
-    this.alumno$ = this.alumnoServicio.obtenerObservableAlumnos()
+    this.alumno$ = this.alumnoServicio.obtenerAlumnos()
 
     this.alumnoSubscripcion = this.alumno$.pipe(
 
-      map((alumnos: Alumno[]) => alumnos.filter((alumno: any) => alumno.id !== 1))
+      map((alumnos: Alumno[]) => alumnos.filter((alumno: any) => alumno.id !== '1'))
 
     ).subscribe(alumno => {
-    
+
       this.dataSource.data = alumno
       this.loading = false
 
@@ -60,24 +63,18 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        const item = this.dataSource.data.find(alumno => alumno.id === resultado.id)
-        const index = this.dataSource.data.indexOf(item!)
-        this.dataSource.data[index] = resultado
-        this.listaAlumnos.renderRows()
-      }
+      if (resultado) this.alumnoServicio.modificarAlumno(resultado)
     })
   }
 
-  eliminar(idAlumno: number) {
+  eliminar(idAlumno: string) {
+
     const dialogRef = this.dialog.open(BorrarDialogComponent, {
       width: '20%'
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        this.dataSource.data = this.dataSource.data.filter((alumno: Alumno) => alumno.id !== idAlumno)
-      }
+      if (resultado) this.alumnoServicio.eliminarAlumno(idAlumno)
     })
   }
 
@@ -92,11 +89,12 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        this.dataSource.data.push({ ...resultado, id: this.dataSource.data.length + 1 })
-        this.listaAlumnos.renderRows()
-      }
+      if (resultado) this.alumnoServicio.nuevoAlumno(resultado)
     })
+  }
+
+  detalle(alumno: Alumno) {
+    this.router.navigate(['alumnos/detalle', alumno.id])
   }
 
 }

@@ -1,0 +1,15 @@
+.titulo {
+    font-family: cursive;
+    text-align: center;
+    display: inline;
+    text-decoration: underline;
+}
+
+.tabla {
+    background: rgb(34, 193, 195);
+    background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 45, 248, 0.2413340336134454) 100%);
+    color: black;
+    justify-content: center;
+    text-align: center;
+    font-family: cursive;
+}

@@ -3,10 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ModificarCursoComponent } from './components/modificar-curso/modificar-curso.component';
 import { NuevoCursoComponent } from './components/nuevo-curso/nuevo-curso.component';
-import { CursosService } from './services/cursos/cursos.service';
-import { Curso } from 'src/app/shared/interfaces/curso';
 import { map, Observable, Subscription } from 'rxjs';
 import { BorrarDialogComponent } from '../shared/components/borrar-dialog/borrar-dialog.component';
+import { Curso } from '../models/curso';
+import { CursoService } from './services/curso.service';
 
 @Component({
   selector: 'app-cursos',
@@ -20,25 +20,25 @@ export class CursosComponent implements OnInit, OnDestroy {
   public columnas: string[] = ['comision', 'nombre', 'profesor', 'acciones']
   public dataSource: MatTableDataSource<any> = new MatTableDataSource()
   public cursoSubscripcion: Subscription
-  public curso$: Observable<any>
+  public cursos$: Observable<any>
 
   @ViewChild(MatTable) listaCursos!: MatTable<Curso>
 
   constructor(
 
     private dialog: MatDialog,
-    private alumnoServicio: CursosService
+    private cursoServicio: CursoService
 
   ) {
 
-    this.curso$ = this.alumnoServicio.obtenerObservableAlumnos()
+    this.cursos$ = this.cursoServicio.obtenerCursos()
 
-    this.cursoSubscripcion = this.curso$.pipe(
+    this.cursoSubscripcion = this.cursos$.pipe(
 
-      map((cursos: Curso[]) => cursos.filter((curso: any) => curso.id !== 1))
+      //map((cursos: Curso[]) => cursos.filter((curso: any) => curso.id !== '1'))
 
     ).subscribe(curso => {
-    
+
       this.dataSource.data = curso
       this.loading = false
 
@@ -60,24 +60,19 @@ export class CursosComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        const item = this.dataSource.data.find(curso => curso.id === resultado.id)
-        const index = this.dataSource.data.indexOf(item!)
-        this.dataSource.data[index] = resultado
-        this.listaCursos.renderRows()
-      }
+      console.log(resultado);
+      
+      if (resultado) this.cursoServicio.modificarCurso(resultado)
     })
   }
 
-  eliminar(comision: number) {
+  eliminar(idCurso: string) {
     const dialogRef = this.dialog.open(BorrarDialogComponent, {
       width: '20%'
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        this.dataSource.data = this.dataSource.data.filter((curso: Curso) => curso.comision !== comision)
-      }
+      if (resultado) this.cursoServicio.eliminarCurso(idCurso)
     })
   }
 
@@ -92,10 +87,7 @@ export class CursosComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe(resultado => {
-      if (resultado) {
-        this.dataSource.data.push({ ...resultado, id: this.dataSource.data.length + 1 })
-        this.listaCursos.renderRows()
-      }
+      if (resultado) this.cursoServicio.nuevoCurso(resultado)
     })
   }
 

@@ -1,27 +1,17 @@
-# Miapp
+# Proyecto Angular - Roberto Micaeela -:boom::collision:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+*Proyeto creado para el curso de Angular dictado por el profesor Abner José García Ferrufino, dentro de la institucion Coder House :heart_on_fire:.
 
-## Development server
+## - DESCRIPCION DEL PROYECTO -
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+*El proyecto trata de una plataforma con loguin, donde se muestran listas, la opcion de editar y agregar componentes.
+## -INSTRUCCIONES-
+### Comenzar
+*Para comenzar, se necesitará clonar el repositorio, abriendo la consola de git y colocando el comando
 
-## Code scaffolding
+*git clone 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+*Luego abrir la carpeta descargada.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Despliegue
+*Dentro del editor de codigo, deberan abrir la terminal, preferentemente bash y colocar el comando npm install Luego instalar.
